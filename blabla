@@ -1,0 +1,8 @@
+import scrapy
+class BlaspiderSpider(scrapy.Spider):
+    name = 'blaspider'
+    allowed_domains = ['https://www.blablacar.in/trip/carpooling/1408455660-delhi-chandigarh/']
+    start_urls = ['https://www.blablacar.in/trip/carpooling/1408455660-delhi-chandigarh/']
+
+    def parse(self, response):
+        self.log("I Just visited :::" + response.url)
