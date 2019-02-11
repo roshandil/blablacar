@@ -27,3 +27,8 @@ class BlaspiderSpider(scrapy.Spider):
         car_owner_age = response.xpath('//*[@id="maincontent"]/div[2]/div[4]/div[2]/div[2]/div/div[1]/div[1]/div[2]/div[1]/text()').getall()
         car_owner_rating = response.xpath('//*[@id="maincontent"]/div[2]/div[4]//div[2]/div/div[1]/div[2]/p/span[1]/text()').getall()
         car_model = response.xpath('//*[@id="maincontent"]/div[2]/div[4]/div[2]/div[2]/div/div[2]/p/text()').extract()
+        
+        yield {'source': source ,'destination': destination,'departurepoint':departure_point,'dropoff':drop_off_point,'departure':departure_date,
+               'options':options,'price':price,'seats':seats_left,
+               'image':car_owner_image,'sacar':sacar_owner_name,'carowner':car_owner_age,
+               'rating':car_owner_rating,'model':car_model}
